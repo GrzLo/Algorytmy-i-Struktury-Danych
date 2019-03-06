@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 
+//do zadania dołączony jest przykładowy plik tekstowy "zad9.txt"
 int * countAscii(char* arg)
 {
 	//tworzenie tablicy
