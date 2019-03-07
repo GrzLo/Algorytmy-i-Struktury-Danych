@@ -2,7 +2,7 @@
 
 static int counter = 0;
 
-// n(n+1)/2 - 1
+// n
 int skalar(int a[], int b[], int n)
 {
 	int result = 0;
@@ -15,6 +15,7 @@ int skalar(int a[], int b[], int n)
 	return result;
 }
 
+// n(n+1)/2 - 1
 int wielomian(int a[], int n, int x)
 {
 	int result = 0;
@@ -28,11 +29,9 @@ int wielomian(int a[], int n, int x)
 		{
 			partial *= x;
 			++counter;
-			std::cout << counter << " ";
 		}
 		partial *= a[i];
 		++counter;
-		std::cout << counter << " o ";
 		result += partial;
 	}
 	result += a[n];
@@ -81,6 +80,7 @@ void iloczynMacierzy(int a[][3], int b[][3], int n)
 	}
 }
 
+//n!
 int wyznacznikMacierzy(int a[3][3], int n)
 {
 	int wyzn = 0;
