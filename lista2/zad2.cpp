@@ -2,10 +2,11 @@
 
 static int comparisons1, comparisons2, comparisons3 = 0;
 
-// wersja (a) iteracyjna n-1 porównań
+// wersja (a) iteracyjna
+//n-1 porównań
 int maks1(int t[], int n)
 {
-    int x = t[--n];
+    int x = t[--n]; // 4
     while(n--)
     {
 		++comparisons1; 
@@ -14,10 +15,11 @@ int maks1(int t[], int n)
             x = t[n];
         }
     }
-    return x;
+    return x; // 4
 }
 
-//wersja (b) rekurencyjna, n porównań
+//wersja (b) rekurencyjna,
+//n porównań, 
 int maks2(int t[], int n)
 {
 	++comparisons2;
@@ -26,12 +28,12 @@ int maks2(int t[], int n)
 		return t[0];
 	}
 
-	int max = maks2(t, (n - 1));
-	return max > t[n - 1] ? max : t[n-1];
+	int max = maks2(t, (n - 1)); // 4
+	return max > t[n - 1] ? max : t[n-1]; // 4
 }
 
-//wersja (c) rekurencyjna n porównań
-
+//wersja (c) rekurencyjna
+//n porównań
 int maks3(int t[], int start, int end)
 {
 	
