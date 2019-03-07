@@ -2,7 +2,7 @@
 
 static int comparisons1, comparisons2, comparisons3 = 0;
 
-// wersja (a) iteracyjna n-1 porównań, (n+1) * 4 bajty pamięci
+// wersja (a) iteracyjna n-1 porównań
 int maks1(int t[], int n)
 {
     int x = t[--n];
@@ -17,7 +17,7 @@ int maks1(int t[], int n)
     return x;
 }
 
-//wersja (b) rekurencyjna, n porównań, 2n * 4 bajty pamięci
+//wersja (b) rekurencyjna, n porównań
 int maks2(int t[], int n)
 {
 	++comparisons2;
@@ -30,9 +30,8 @@ int maks2(int t[], int n)
 	return max > t[n - 1] ? max : t[n-1];
 }
 
-//wersja (c) rekurencyjna
-//n porównań
-//4n + 16
+//wersja (c) rekurencyjna n porównań
+
 int maks3(int t[], int start, int end)
 {
 	
