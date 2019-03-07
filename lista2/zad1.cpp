@@ -6,16 +6,16 @@ int find(int a[], int start, int end, int x)
 {
 	int mid = (start + end) / 2;
 	
+	++comparisons;
 	if(a[mid] == x)
 	{
-		comparisons += 1;
+		
 		std::cout << "Element found at index: " << mid << " Number of comparisons: " << comparisons << std::endl;
 		return mid; 
 	}
 	
 	else if(start == end)
 	{
-		comparisons += 1;
 		std::cout << "Element not found. Number of comparisons: " << comparisons << std::endl;
 		return 0;	
 	}
@@ -23,7 +23,6 @@ int find(int a[], int start, int end, int x)
 	else
 	{
 		a[mid] > x ? end = mid : start = mid+1;
-		comparisons += 1;
 		
 		find(a, start, end, x);
 	}
