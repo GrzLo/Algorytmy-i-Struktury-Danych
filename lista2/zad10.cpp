@@ -80,35 +80,39 @@ void display(node *t,char z1=' ',char z2=' ')
 {
 	if(t)
 	{
-		std::cout<<z1;
+		std::cout << z1;
 		display(t->m_left,'(',')');
-		std::cout<<t->m_x;
+		std::cout << t->m_x;
 		display(t->m_right,'[',']');
-		std::cout<<z2;
+		std::cout <<  z2;
 	}
+}
+
+int h(node* t)
+{
+	if(!t)
+	{
+		return -1;
+	}
+	return !t ? 0 : 1 + std::max(h(t->m_left),h(t->m_right));
 }
 
 int main()
 {
 	node* t=NULL;
 	
-	insert(t,3);
-	insert(t,4); 
-	insert(t,1);
-	insert(t,7);
-	insert(t,-4);
-	insert(t,9);
-	insert(t,2);
+	insert(t,25);
+	insert(t,15); 
+	insert(t,10);
+	insert(t,22);
+	insert(t,50);
+	insert(t,35);
+	insert(t,70);
 	
+	int x = 35;
 
 	display(t);
 	std::cout << std::endl;
-	std::cout << "wyszukaj 9: " << find(t,9)->m_x << std::endl;
-	std::cout << "usuń korzeń (" << t->m_x<<"): "; 
-	remove(t,t->m_x); 
-	std::cout << std::endl;
-	display(t); 
-	std::cout << std::endl;	 
-
+	std::cout << h(t) << std::endl;	 
 }
 
