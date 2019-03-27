@@ -16,12 +16,12 @@ struct node
 	
 	class iterator
 {
-public:
+private:
 	node* currentNode;
 
 public:
 	iterator(node* t) :
-	currentNode(t)
+		currentNode(t)
 	{
 	}
 	
@@ -59,6 +59,11 @@ public:
 		return currentNode != it.currentNode;
 	}
 	
+	int operator* ()
+	{
+		return currentNode->m_x;
+	}
+	
 	node* nextNode(node* t)
 	{
 		node* t1 = t;
@@ -66,6 +71,7 @@ public:
 		{
 			while(t->m_parent != NULL && t1->m_x > t->m_parent->m_x)
 			{
+				
 				t = t->m_parent;
 			}
 			return t->m_parent;
@@ -112,6 +118,7 @@ node* find(node* t,int x)
 			return NULL;
 		}
 	}
+	
 	return t; 
 }
 
@@ -237,6 +244,6 @@ int main()
 	
 	for(node::iterator it = it.begin(myNode); it != it.end(myNode); it++)
 	{
-		std::cout << it.currentNode->m_x << std::endl;
+		std::cout << *it << std::endl;
 	}
 }
