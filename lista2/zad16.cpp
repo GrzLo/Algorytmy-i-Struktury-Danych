@@ -1,6 +1,5 @@
 #include <iostream>
 
-using namespace std;
 struct node
 { 
 	int m_x;
@@ -49,38 +48,38 @@ public:
 		return *this;
 	}
 	
-	iterator operator ++()
+	iterator operator ++ (int)
 	{
-		     
-		if(currentNode->m_right) //Jak moze isc w prawo to potem na maxa w lewo
-		{
-			currentNode = currentNode->m_right;
-			while(currentNode->m_left)
-			{
-				currentNode = currentNode->m_left;
-			}
-			return *this; //zwracamy nasz skrajnie lewy elem.
-		}
-		while(1)
-		{
-			if(!currentNode->m_parent)
-			{
-				currentNode = NULL; //zwracamy NULL czyli koniec iteracji, gdy Parent jest NULL
-				return *this;
-			}
-			if(currentNode == currentNode->m_parent->m_left) //Tutaj wychodzimy ze skrajnie lewego
-			{
-				currentNode = currentNode->m_parent;
-				return *this;
-			}
-			currentNode = currentNode;
-		}
-		
+		currentNode = nextNode(this->currentNode);
+		return currentNode;
 	}
 	
-	bool operator!=(const iterator& it)
+	bool operator != (const iterator& it)
 	{
 		return currentNode != it.currentNode;
+	}
+	
+	node* nextNode(node* t)
+	{
+		node* t1 = t;
+		if(t->m_right == NULL)
+		{
+			while(t->m_parent != NULL && t1->m_x > t->m_parent->m_x)
+			{
+				
+				t = t->m_parent;
+			}
+			return t->m_parent;
+		}
+		else
+		{
+			t = t->m_right;
+			while (t->m_left != NULL && t->m_left->m_x > t1->m_x)
+			{
+				t = t->m_left;
+			}
+		return t;
+		}
 	}
 };
 };
@@ -238,9 +237,8 @@ int main()
 	insert(myNode, 20);
 	
 	
-	for(node::iterator it = it.begin(myNode); it != it.end(myNode); ++it)
+	for(node::iterator it = it.begin(myNode); it != it.end(myNode); it++)
 	{
 		std::cout << it.currentNode->m_x << std::endl;
 	}
-
 }
