@@ -66,7 +66,6 @@ public:
 		{
 			while(t->m_parent != NULL && t1->m_x > t->m_parent->m_x)
 			{
-				
 				t = t->m_parent;
 			}
 			return t->m_parent;
@@ -113,7 +112,6 @@ node* find(node* t,int x)
 			return NULL;
 		}
 	}
-	
 	return t; 
 }
 
