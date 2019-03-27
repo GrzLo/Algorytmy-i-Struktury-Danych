@@ -21,7 +21,7 @@ public:
 
 public:
 	iterator(node* t) :
-		currentNode(t)
+	currentNode(t)
 	{
 	}
 	
