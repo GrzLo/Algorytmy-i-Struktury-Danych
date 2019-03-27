@@ -14,7 +14,7 @@ struct node
 		m_parent(parent)
 	{}
 	
-	class iterator
+class iterator
 {
 private:
 	node* currentNode;
