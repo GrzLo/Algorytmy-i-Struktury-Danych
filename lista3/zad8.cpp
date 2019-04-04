@@ -57,11 +57,6 @@ int min(BSTnode* t)
 	return t->m_key;
 }
 
-int nKeys(BSTnode* t)
-{
-	return !t ? 0 : 1 +nKeys(t->m_left) + nKeys(t->m_right);
-}
-
 void remove(BSTnode*& t, int key)
 {
 	if(!t) 
@@ -99,33 +94,6 @@ void remove(BSTnode*& t, int key)
 			--(t->m_rightCount);
 			remove(t->m_right, key);
 		}
-	}
-}
-
-
-int poziom(BSTnode* t, int klucz)
-{
-	int level = 0;
-	
-	while(t && klucz != t->m_key)
-	{
-		if(klucz < t->m_key)
-		{
-			t = t->m_left;
-		}
-		else
-		{
-			t = t->m_right;
-		}
-		++level;
-	}
-	if(t)
-	{
-		return level +1;
-	}
-	else
-	{
-		return 0;
 	}
 }
 
