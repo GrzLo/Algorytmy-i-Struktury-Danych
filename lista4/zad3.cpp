@@ -49,7 +49,7 @@ void print(int t[], int n)
 
 int main()
 {
-    int array[10] = {51,12,23,94,15,26,27,58,29,61};
+    int array[10] = {21,72,14,13,15,28,27,58,29,61};
     print(array, 10);
     countingSort(array, 10, 0);
     print(array, 10);
