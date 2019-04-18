@@ -1,17 +1,6 @@
 #include <iostream>
 #include <cmath>
 
-int k_th(int x, int k) {
-    int length = floor(log10(x)) + 1;
-    int result = 0;
-    for (int i = length; i != k; i--) 
-    {
-        result = x % 10;
-        x = x / 10;
-    }
-    return result;
-}
-
 void countingSort(int t[], int n, int c)
 {
     int max = t[0];
