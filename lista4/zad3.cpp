@@ -3,21 +3,7 @@
 
 void countingSort(int t[], int n, int c)
 {
-    int max = t[0];
-    int min = t[0];
-
-    for (int i = 0; i < n; i++)
-    {
-        if (t[i] > max)
-            max = t[i];
-        if (t[i] < min)
-            min = t[i];
-    }
-
-    std::cout << "Min = " << min << ", max = " << max << std::endl;
-
-    int range = max - min + 1; 
-    int count[range] = {0};
+    int count[10] = {0};
     
     int i;
     int out[n];
